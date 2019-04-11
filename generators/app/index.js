@@ -79,21 +79,21 @@ module.exports = class extends Generator {
         case "bash": {
           this.fs.copy(
             this.templatePath(".bashrc"),
-            this.destinationPath("bash", "rc.sh")
+            this.destinationPath(shell, "rc.sh")
           );
           break;
         }
         case "fish": {
           this.fs.copy(
             this.templatePath(".config", "fish"),
-            this.destinationPath("fish")
+            this.destinationPath(shell)
           );
           break;
         }
         case "zsh": {
           this.fs.copy(
             this.templatePath(".zshrc"),
-            this.destinationPath("zsh", "rc.zsh")
+            this.destinationPath(shell, "rc.zsh")
           );
           break;
         }
@@ -115,14 +115,14 @@ module.exports = class extends Generator {
               "{*.json,snippets}",
               "*"
             ),
-            this.destinationPath("vscode")
+            this.destinationPath(editor)
           );
           break;
         }
         case "atom": {
           this.fs.copy(
             this.templatePath(".atom", "*"),
-            this.destinationPath("atom")
+            this.destinationPath(editor)
           );
           break;
         }
@@ -132,6 +132,6 @@ module.exports = class extends Generator {
       }
     }
 
-    this.fs.writeJSON(this.destinationPath("props.json"), this.props);
+    this.fs.writeJSON(this.destinationPath("dotfiles.json"), this.props);
   }
 };

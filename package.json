@@ -1,5 +1,5 @@
 {
-  "name": "generator-dotfiles",
+  "name": "@tangojuliett/generator-dotfiles",
   "version": "0.1.0",
   "description": "My new dotfiles project!",
   "homepage": "https://github.com/tjpeden/generator-dotfiles",
